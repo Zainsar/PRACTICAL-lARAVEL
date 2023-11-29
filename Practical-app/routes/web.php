@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\customcontroller;
+use App\Http\Controllers\formcontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,6 @@ Route::controller(customcontroller::class)->group(
         Route::get('/booking', 'booking')->name('booking');
     }
 );
+
+route::get('/form' , [formcontroller::class ,'form']);
+route::post('/form' , [formcontroller::class , 'data']);
