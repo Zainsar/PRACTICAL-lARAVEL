@@ -9,7 +9,10 @@ class formcontroller extends Controller
 {
     public function form()
     {
-        return view('form');
+        $url = url('/form');
+        $title = "Rigester form";
+        $record1 = compact('url' , 'title');
+        return view('form')->with($record1);
     }
     public function data(Request $request)
     {
@@ -36,9 +39,27 @@ class formcontroller extends Controller
 
     public function std_dlt($id)
     {
-        echo $id;
+        // echo $id;
         $find = form::find($id)->delete();
         print_r($find);
+        return redirect('std/view');
+    }
+    public function std_edit($id)
+    {
+        // echo $id;
+        $edit = form::find($id);
+        // dd($edit);
+        $url = url("std/update"). "/" . $id;
+        $title = "Update User Information";
+        $records = compact('edit' , 'url' , 'title');
+        return view('form')->with($records);
+    }
+    public function std_update($id , request $request){
+        $_student = form::find($id);
+        $_student->name=$request['name'];
+        $_student->email=$request['email'];
+        $_student->password=$request['password'];
+        $_student->save();
         return redirect('std/view');
     }
 }

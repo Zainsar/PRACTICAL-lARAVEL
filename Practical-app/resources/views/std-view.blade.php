@@ -23,7 +23,8 @@
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,7 +35,8 @@
                     <td>{{$value->Name}}</td>
                     <td>{{$value->Email}}</td>
                     <td>{{$value->Password}}</td>
-                    <td><a href="{{route('Zain',['id' => $value->id ])}}">Delete</a></td>
+                    <td><a class="btn btn-danger col-sm-6" href="{{route('dlt',['id' => $value->id ])}}">Delete</a></td>
+                    <td><a class="btn btn-success col-sm-6" href="{{url('std/edit')}}/{{$value->id}}">Edit</a></td>
                 </tr>
                 @endforeach
             </tbody>

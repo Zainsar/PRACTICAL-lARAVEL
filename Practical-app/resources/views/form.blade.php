@@ -11,12 +11,11 @@
 <body>
     
 <div class="container">
-
-    <h1>Register Form</h1>
-    <form action="{{url('/')}}/form" method="POST" class="form-group">
+    <h1>{{$title}}</h1>
+    <form action="{{$url}}" method="POST" class="form-group">
         @csrf
         <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" value="{{old('name')}}">
+        <input type="text" name="name" class="form-control" value="{{$edit->Name}}">
         <span class="text-danger">
             @error('name')
                 {{$message}}
@@ -24,7 +23,7 @@
         </span>
         <br>
         <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" value="{{old('email')}}">
+        <input type="email" name="email" class="form-control" value="{{$edit->Email}}">
         <span class="text-danger">
             @error('email')
             {{$message}}
@@ -32,7 +31,7 @@
         </span>
         <br>
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" value="{{old('password')}}">
+        <input type="password" name="password" class="form-control" value="{{$edit->Password}}">
         <span class="text-danger">
             @error('password')
             {{$message}}

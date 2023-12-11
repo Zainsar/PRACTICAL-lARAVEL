@@ -30,4 +30,6 @@ Route::controller(customcontroller::class)->group(
 route::get('/form' , [formcontroller::class ,'form']);
 route::post('/form' , [formcontroller::class , 'data']);
 route::get('/std/view', [formcontroller::class , 'std_view']);
-route::get('/std/dlt/{id}', [formcontroller::class , 'std_dlt'])->name('Zain');
+route::get('/std/dlt/{id}', [formcontroller::class , 'std_dlt'])->name('dlt');
+route::get('/std/edit/{id}', [formcontroller::class , 'std_edit'])->name('edit');
+route::post('/std/update/{id}', [formcontroller::class , 'std_update']);
